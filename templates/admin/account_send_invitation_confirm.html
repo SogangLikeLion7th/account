@@ -1,0 +1,23 @@
+{% extends 'admin/base_site.html' %}
+
+{% block content %}
+    <div class="delete-confirmation">
+        <form method="POST">
+            {% csrf_token %}
+            <h3>초대 메일 보내기</h3>
+            <p>관리자를 제외한 모든 회원들에게 초대 메일을 보낼까요?</p>
+            <div>
+                <input type="submit" value="예, 보냅니다.">
+                <a class="button cancel-link" href="#">아니요, 취소하겠습니다.</a>
+            </div>
+        </form>
+    </div>
+    <script>
+        (function() {
+           let btnCancel = document.getElementsByClassName("cancel-link")[0]
+            btnCancel.onclick = function() {
+               window.history.back();
+            }
+        })();
+    </script>
+{% endblock %}
